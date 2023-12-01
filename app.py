@@ -18,7 +18,7 @@ def submit_contact():
         subject = request.form['subject']
         message = request.form['message']
 
-        # Store the data in MongoDB along with the timestamp
+
         mongo.db.contacts.insert_one({
             'name': name,
             'email': email,
