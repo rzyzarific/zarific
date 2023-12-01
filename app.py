@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from flask_pymongo import PyMongo
-from datetime import datetime
 from flask import jsonify  # Import jsonify for handling JSON responses
 
 app = Flask(__name__, static_folder='assets')
@@ -19,16 +18,12 @@ def submit_contact():
         subject = request.form['subject']
         message = request.form['message']
 
-        # Get the current date and time
-        current_time = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
-
         # Store the data in MongoDB along with the timestamp
         mongo.db.contacts.insert_one({
             'name': name,
             'email': email,
             'subject': subject,
             'message': message,
-            'timestamp': current_time
         })
 
         # Return a JSON response indicating success
