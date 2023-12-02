@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import jsonify  # Import jsonify for handling JSON responses
 
 app = Flask(__name__, static_folder='assets')
-app.config["MONGO_URI"] = "mongodb://localhost:27017/zarificcontact"
+app.config["MONGO_URI"] = "mongodb+srv://zarific:!SecreT!@zarific.qqtjtp3.mongodb.net/zarificdb"
 mongo = PyMongo(app)
 
 @app.route('/')
